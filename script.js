@@ -14,7 +14,9 @@ function genCountLi() {
     }
 
     if(countString<=0 || isNaN(countString) ) {
-        console.log('Not a Number');
+        warningMessage.innerHTML = 'Ошибка! Введите целое число больше нуля';
+        warningMessage.style.background = 'pink';
+        warningMessage.style.border = '4px double red';
     }
 }
 
@@ -25,5 +27,8 @@ function genOneLi(numberString) {
 function clear() {
     ulElement.innerText = '';
     document.querySelector('#countLi').value = '';
+    warningMessage.innerHTML = '';
+    warningMessage.style.background = '';
+    warningMessage.style.border = '';
 }
 

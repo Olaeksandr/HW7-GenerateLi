@@ -1,18 +1,20 @@
 'use strict';
 
 const ulElement = document.querySelector('ul');
-const countString = document.querySelector('#countLi');
-
+const warningMessage = document.querySelector('#warningMessage');
 
 document.getElementById('genCountLiBtn').addEventListener('click', genCountLi);
- 
 
 function genCountLi() {
-    let countStr = document.querySelector('#countLi').value;
-    countStr = Number(countStr);
+    let countString = document.querySelector('#countLi').value;
+    countString = Number(countString);
     clear();
-    for(let i=0; i< countStr; i++) {
+    for(let i=1; i<countString+1; i++) {
         genOneLi(i);      
+    }
+
+    if(countString<=0 || isNaN(countString) ) {
+        console.log('Not a Number');
     }
 }
 
@@ -24,3 +26,4 @@ function clear() {
     ulElement.innerText = '';
     document.querySelector('#countLi').value = '';
 }
+

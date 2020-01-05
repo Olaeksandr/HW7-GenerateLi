@@ -2,23 +2,25 @@
 
 const ulElement = document.querySelector('ul');
 const countString = document.querySelector('#countLi');
-let countStr = Number(countString.value);
-console.log(countStr);
+
+
 document.getElementById('genCountLiBtn').addEventListener('click', genCountLi);
  
 
 function genCountLi() {
-
-    genOneLi();
-
-console.log(countStr);
- 
+    let countStr = document.querySelector('#countLi').value;
+    countStr = Number(countStr);
+    clear();
+    for(let i=0; i< countStr; i++) {
+        genOneLi(i);      
+    }
 }
 
-function genOneLi() {
-
-ulElement.innerHTML = "<li>sadfas</li>";
-
+function genOneLi(numberString) {
+ return ulElement.innerHTML += `<li>номер строки №${numberString}</li>`;
 }
 
-
+function clear() {
+    ulElement.innerText = '';
+    document.querySelector('#countLi').value = '';
+}
